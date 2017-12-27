@@ -1,0 +1,7 @@
+.ir-box {
+    border: #ff0a14 solid 2px;
+    width:200px;
+    height: 200px;
+    text-align:center;
+    margin: 20px;
+}
