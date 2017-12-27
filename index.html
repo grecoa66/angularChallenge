@@ -3,16 +3,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="app.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css" />
+
 <body>
 <div ng-app="myApp">
     <div ng-controller="irController">
 
-        <ir-boxes count="count" arr="NumArray"></ir-boxes>
+        <box-counter count="count" update="updateCount()"></box-counter>
 
-        <box-counter count="count" updateCount="updateCount()"></box-counter>
+        <ir-boxes count="count" arr="numArray" remove="removeBox()"></ir-boxes>
+
     </div>
 
 </div>
 
 </body>
+
 </html>

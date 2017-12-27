@@ -5,3 +5,10 @@
     text-align:center;
     margin: 20px;
 }
+
+.box-input {
+    border: #000 solid 1px;
+    margin: 20px 20px 5px;
+    padding: 5px;
+    display: inline-block;
+}

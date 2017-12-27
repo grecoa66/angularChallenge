@@ -1,39 +1,46 @@
-(function(){
+(function() {
     'use strict';
     var app = angular.module("myApp", []);
 
     // Directive for displaying the IR-BOXES
-    app.directive("irBoxes", function(){
+    app.directive("irBoxes", function() {
         return {
             restrict: 'E',
             scope: {
-                count : '=',
-                arr: '='
+                count: '=',
+                arr: '=',
+                remove: '&'
             },
             templateUrl: 'ir-boxes.html'
         }
     });
 
     // Directive for quantity selector
-    app.directive('boxCounter', function(){
-       return {
-           templateUrl: 'box-counter.html',
-           scope: {
-               count : '=',
-               updateCount :'&'
-           }
-       }
+    app.directive('boxCounter', function() {
+        return {
+            templateUrl: 'box-counter.html',
+            scope: {
+                count: '=',
+                update: '&'
+            }
+        }
     });
 
     // Controller to drive the directives
-    app.controller('irController', function($scope){
+    app.controller('irController', function($scope) {
         // the # of boxes to be displayed
         $scope.count = 3;
         $scope.numArray = getNumArray();
 
-        $scope.updateCount = function(){
+        $scope.updateCount = function() {
             console.log("Updating num boxes: ", $scope.count);
-            $scope.NumArray = getNumArray();
+            $scope.numArray = getNumArray();
+        };
+
+        $scope.removeBox = function() {
+            console.log("Removing a box...");
+            $scope.count--;
+            $scope.updateCount();
         };
 
         /**
@@ -42,16 +49,14 @@
          * syntax to iterate over a collection with the ng-repeat directive.
          * @returns {Array}
          */
-        function getNumArray(){
+        function getNumArray() {
             var numArr = [];
-            for(var i = 1; i <= $scope.count; i++){
+            for (var i = 1; i <= $scope.count; i++) {
                 numArr.push(i);
             }
             return numArr;
         }
 
     });
-
-
 
 })();
